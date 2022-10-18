@@ -1,51 +1,41 @@
 import { DataTypes } from "sequelize";
-import SequelizeSlugify from "sequelize-slugify";
 import { sequelize } from "../config/db.js";
 
-export const Chantier = sequelize.define("chantiers", {
+export const Information = sequelize.define("informations", {
     name: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    slug: {
-        type: DataTypes.STRING,
-        unique: true,
+    birth: {
+        type: DataTypes.DATEONLY,
+        allowNull: true,
     },
-    architecte: {
+    permis: {
         type: DataTypes.STRING,
         allowNull: true,
     },
-    intro: {
+    infos: {
         type: DataTypes.STRING,
         allowNull: true,
     },
-    specifications: {
+    phone: {
         type: DataTypes.STRING,
         allowNull: true,
     },
-    taches: {
+    email: {
         type: DataTypes.STRING,
         allowNull: true,
     },
-    img1: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
-    img2: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
-    img3: {
+    linkedin: {
         type: DataTypes.STRING,
         allowNull: true,
     },
 });
 
-SequelizeSlugify.slugifyModel(Chantier, { source: ["name"] });
 sequelize
     .sync()
     .then(() => {
-        console.log("Chantier table created successfully!");
+        console.log("Information table created successfully!");
     })
     .catch((error) => {
         console.error("Unable to create table : ", error);

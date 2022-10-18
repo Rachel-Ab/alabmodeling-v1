@@ -10,9 +10,9 @@ dotenv.config();
 const app = express();
 const { APP_HOST, APP_PORT } = process.env;
 
-app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 sequelize
     .authenticate()
@@ -31,5 +31,3 @@ async function init() {
         console.log(`App listening at http://${APP_HOST}:${APP_PORT}`);
     });
 }
-
-// require("./routes/chantiersRoutes")(app);

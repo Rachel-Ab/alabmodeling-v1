@@ -2,13 +2,13 @@ import express from "express";
 import {
     allByFk,
     byFk,
-    create,
     destroy,
     getAll,
-    getBySlug,
     save,
+    getBySlug,
     update,
-} from "../controllers/entrepriseController.js";
+    create,
+} from "../controllers/typeController.js";
 const router = express.Router();
 
 router.get("/save", save);
