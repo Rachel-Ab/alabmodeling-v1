@@ -68,7 +68,7 @@ export async function save(req, res) {
             name: "Formation essaie",
             content: "ceci est un test",
             year: 1995,
-            typeId: 2,
+            typeId: 1,
         });
         res.status(200).json({ status: "success", data: doc });
     } catch (err) {
