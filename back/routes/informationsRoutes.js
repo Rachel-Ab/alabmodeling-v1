@@ -10,7 +10,7 @@ import {
 import { checkAuth } from "../middleware/checkAuth.js";
 const router = express.Router();
 
-// router.get("/save", save);
+router.get("/save", save);
 router.delete("/delete/:id",checkAuth, destroy);
 router.get("/all", getAll);
 router.get("/by-slug/:slug", getBySlug);

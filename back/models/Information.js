@@ -6,6 +6,10 @@ export const Information = sequelize.define("informations", {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    titre: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
     birth: {
         type: DataTypes.DATEONLY,
         allowNull: true,
@@ -23,6 +27,14 @@ export const Information = sequelize.define("informations", {
         allowNull: true,
     },
     email: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    company: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    logo: {
         type: DataTypes.STRING,
         allowNull: true,
     },

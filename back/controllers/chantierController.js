@@ -24,6 +24,7 @@ export async function create(req, res) {
     try {
         const docs = await Chantier.create({
             name: req.body.name,
+            entrepriseId: req.body.entrepriseId,
             architecte: req.body.architecte,
             intro: req.body.intro,
             specifications: req.body.specifications,

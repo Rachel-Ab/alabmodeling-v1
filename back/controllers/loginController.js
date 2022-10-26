@@ -10,8 +10,10 @@ export async function login(req, res) {
         const { username, password } = req.body;
         const hashPassword = CryptoJS.SHA1(password).toString();
         const admin = await User.findOne({
-            username: username,
-            password: hashPassword,
+            where: {
+                username: username,
+                password: hashPassword,
+            },
         });
 
         if (admin) {
@@ -31,7 +33,7 @@ export async function login(req, res) {
                 token: token,
             });
         } else {
-            res.status(401).json({ status: "success", data: false });
+            res.status(401).json({ status: "success", data: false, token: false });
         }
     } catch (err) {
         res.status(500).json({ status: "error", message: err.message });
@@ -49,9 +51,9 @@ export async function getAll(req, res) {
 
 export async function save(req, res) {
     try {
-        let thisPass = CryptoJS.SHA1("thisIsAPassword").toString();
+        let thisPass = CryptoJS.SHA1("pass").toString();
         const newUser = await User.create({
-            username: "thisIsAnAdmin",
+            username: "admin",
             password: thisPass,
         });
         res.status(200).json({ status: "success", data: newUser });
