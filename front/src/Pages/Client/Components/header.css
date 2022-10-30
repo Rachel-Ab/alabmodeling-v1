@@ -1,0 +1,25 @@
+.side-header {
+    width: 10%;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #8db4d9;
+}
+
+.side-header img {
+    width: 90%;
+    margin: 5%;
+}
+
+.side-header h3 {
+    /* writing-mode: vertical-lr; */
+    transform:rotate(-90deg);
+    font-family: "o-b";
+    font-size: 4vh;
+    letter-spacing: 2px;
+    color: white;
+    text-transform: uppercase;
+}

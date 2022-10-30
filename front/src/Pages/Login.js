@@ -59,7 +59,10 @@ export default function Login() {
                                         <h5 className="card-title text-center pb-0 fs-4">
                                             Login to Your Account
                                         </h5>
-                                        <p className="text-center small">
+                                        <p
+                                            className="text-center small"
+                                            id="wrong-login"
+                                        >
                                             Enter your username & password to
                                             login
                                         </p>

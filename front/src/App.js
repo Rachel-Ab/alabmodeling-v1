@@ -2,7 +2,7 @@ import "./App.css";
 import Dashboard from "./Pages/Dashboard/Dashboard.js";
 import Test from "./Pages/Dashboard/Test.js";
 import Login from "./Pages/Login";
-import Home from "./Pages/Client/Home";
+import Home from "./Pages/Client/Home/Home";
 import Error from "./Pages/Error";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Protected from "./GlobalComponents/Protected";
@@ -22,6 +22,7 @@ import EditEntreprise from "./Pages/Dashboard/Entreprises/EditEntreprises";
 import Chantiers from "./Pages/Dashboard/Chantiers/Chantiers";
 import AddChantier from "./Pages/Dashboard/Chantiers/AddChantiers";
 import EditChantier from "./Pages/Dashboard/Chantiers/EditChantiers";
+import Information from "./Pages/Client/Informations/Information";
 
 function App() {
     const token = JSON.parse(localStorage.getItem("admin"));
@@ -109,8 +110,8 @@ function App() {
                     <Route exact path="/login">
                         <Login />
                     </Route>
-                    <Route path="/test">
-                        <Test />
+                    <Route path="/informations">
+                        <Information />
                     </Route>
                     <Route path="/dashboard">
                         <Protected isLoggedIn={token}>
