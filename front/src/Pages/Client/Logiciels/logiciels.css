@@ -1,0 +1,12 @@
+#logiciels {
+    margin-left: 10%;
+    background-color: #f6f9ff;
+    height: 100%;
+}
+
+#logiciels-content {
+    display: flex;
+    flex-direction: column;
+    padding: 7%;
+    max-width: 85%;
+}

@@ -7,7 +7,10 @@ export default function AddChantier() {
     const [entreprises, setEntreprises] = useState([]);
     const [form, setForm] = useState({
         name: "",
-        architecte: "",
+        key1: "",
+        key2: "",
+        key3: "",
+        key4: "",
         intro: "",
         specifications: "",
         taches: "",
@@ -101,18 +104,72 @@ export default function AddChantier() {
                         </div>
                         <div className="row mb-3">
                             <label
-                                htmlFor="architecte"
+                                htmlFor="key1"
                                 className="col-md-4 col-lg-3 col-form-label"
                             >
-                                Architecte
+                                Key 1 
                             </label>
                             <div className="col-md-8 col-lg-9">
                                 <input
-                                    name="architecte"
+                                    name="key1"
                                     type="text"
                                     className="form-control"
-                                    id="architecte"
-                                    value={form.architecte || ""}
+                                    id="key1"
+                                    value={form.key1 || ""}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                        </div>
+                        <div className="row mb-3">
+                            <label
+                                htmlFor="key2"
+                                className="col-md-4 col-lg-3 col-form-label"
+                            >
+                                Key 2 
+                            </label>
+                            <div className="col-md-8 col-lg-9">
+                                <input
+                                    name="key2"
+                                    type="text"
+                                    className="form-control"
+                                    id="key2"
+                                    value={form.key2 || ""}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                        </div>
+                        <div className="row mb-3">
+                            <label
+                                htmlFor="key3"
+                                className="col-md-4 col-lg-3 col-form-label"
+                            >
+                                Key 3 
+                            </label>
+                            <div className="col-md-8 col-lg-9">
+                                <input
+                                    name="key3"
+                                    type="text"
+                                    className="form-control"
+                                    id="key3"
+                                    value={form.key3 || ""}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                        </div>
+                        <div className="row mb-3">
+                            <label
+                                htmlFor="key4"
+                                className="col-md-4 col-lg-3 col-form-label"
+                            >
+                                Key 4 
+                            </label>
+                            <div className="col-md-8 col-lg-9">
+                                <input
+                                    name="key4"
+                                    type="text"
+                                    className="form-control"
+                                    id="key4"
+                                    value={form.key4 || ""}
                                     onChange={handleChange}
                                 />
                             </div>

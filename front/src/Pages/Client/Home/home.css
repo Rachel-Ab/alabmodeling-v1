@@ -25,3 +25,80 @@ a:hover {
 .home-link h2 {
     font-family: "o-m";
 }
+
+#experience-menu-nav {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    background-color: #8db4d9;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.entreprise-box-spacing {
+    padding: 10px;
+}
+
+.entreprise-box {
+    height: 150px;
+    border: solid 2px white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: #6695c1f0 6px 4px 15px 0px;
+    overflow: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.entreprise-box::-webkit-scrollbar {
+    display: none; /* hide scrollbar */
+  }
+
+.entreprise-box h3 {
+    margin: 0;
+    text-transform: uppercase;
+    font-family: "o-m";
+    color: white;
+    font-size: 20px;
+}
+
+.side-menu-chantier:hover {
+    filter: invert(1);
+}
+
+#chantiers-menu-nav {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    z-index: 6;
+    top: 0;
+    right: 0;
+    background-color: #8db4d9;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.return-menu {
+    width: 35px;
+    position: absolute;
+    top: 0;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.return-menu:hover {
+    filter: invert(1);
+}
+
+.menu-nav-title {
+    color: white;
+    font-family: "o-sb";
+    text-align: center;
+}

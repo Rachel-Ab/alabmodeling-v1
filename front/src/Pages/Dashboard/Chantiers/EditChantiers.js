@@ -9,7 +9,10 @@ export default function EditChantier() {
     const [entreprises, setEntreprises] = useState([]);
     const [form, setForm] = useState({
         name: "",
-        architecte: "",
+        key1: "",
+        key2: "",
+        key3: "",
+        key4: "",
         intro: "",
         specifications: "",
         taches: "",
@@ -27,7 +30,17 @@ export default function EditChantier() {
     useEffect(() => {
         setForm({
             name: logiciel.name,
-            color: logiciel.color,
+            key1: logiciel.key1,
+            key2: logiciel.key2,
+            key3: logiciel.key3,
+            key4: logiciel.key4,
+            intro: logiciel.intro,
+            specifications: logiciel.specifications,
+            taches: logiciel.taches,
+            img1: logiciel.img1,
+            img2: logiciel.img2,
+            img3: logiciel.img3,
+            entrepriseId: logiciel.entrepriseId,
         });
     }, [logiciel]);
 
@@ -73,7 +86,7 @@ export default function EditChantier() {
             <div className="card">
                 <div className="card-body">
                     <div className="card-title">
-                        <h4>Ajouter un chantier</h4>
+                        <h4>Edit un chantier</h4>
                     </div>
                     <form id="form-information" onSubmit={handleSubmit}>
                         <div className="row mb-3">
@@ -124,18 +137,72 @@ export default function EditChantier() {
                         </div>
                         <div className="row mb-3">
                             <label
-                                htmlFor="architecte"
+                                htmlFor="key1"
                                 className="col-md-4 col-lg-3 col-form-label"
                             >
-                                Architecte
+                                Key 1
                             </label>
                             <div className="col-md-8 col-lg-9">
                                 <input
-                                    name="architecte"
+                                    name="key1"
                                     type="text"
                                     className="form-control"
-                                    id="architecte"
-                                    value={form.architecte || ""}
+                                    id="key1"
+                                    value={form.key1 || ""}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                        </div>
+                        <div className="row mb-3">
+                            <label
+                                htmlFor="key2"
+                                className="col-md-4 col-lg-3 col-form-label"
+                            >
+                                Key 2
+                            </label>
+                            <div className="col-md-8 col-lg-9">
+                                <input
+                                    name="key2"
+                                    type="text"
+                                    className="form-control"
+                                    id="key2"
+                                    value={form.key2 || ""}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                        </div>
+                        <div className="row mb-3">
+                            <label
+                                htmlFor="key3"
+                                className="col-md-4 col-lg-3 col-form-label"
+                            >
+                                Key 3
+                            </label>
+                            <div className="col-md-8 col-lg-9">
+                                <input
+                                    name="key3"
+                                    type="text"
+                                    className="form-control"
+                                    id="key3"
+                                    value={form.key3 || ""}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                        </div>
+                        <div className="row mb-3">
+                            <label
+                                htmlFor="key4"
+                                className="col-md-4 col-lg-3 col-form-label"
+                            >
+                                Key 4
+                            </label>
+                            <div className="col-md-8 col-lg-9">
+                                <input
+                                    name="key4"
+                                    type="text"
+                                    className="form-control"
+                                    id="key4"
+                                    value={form.key4 || ""}
                                     onChange={handleChange}
                                 />
                             </div>

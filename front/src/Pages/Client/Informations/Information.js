@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../../../config";
 import Header from "../Components/Header";
+import Keywords from "../Components/Keywords";
 import "./information.css";
 
 export default function Information() {
@@ -15,7 +16,6 @@ export default function Information() {
     return (
         <>
             <Header
-                logoE={information.logo}
                 img={information.logo}
                 name="Informations"
             />
@@ -44,14 +44,7 @@ export default function Information() {
                         <p>{information.email}</p>
                         <p>{information.linkedin}</p>
                     </div>
-                    <h4 className="keyword1">Key word1</h4>
-                    <h4 className="keyword2">Key word2</h4>
-                    <div className="keyword3-box">
-                        <h4 className="keyword3">Key word3</h4>
-                    </div>
-                    <div className="keyword4-box">
-                        <h4 className="keyword4">Key word4</h4>
-                    </div>
+                    <Keywords key1="Alabmodeling" key2={information.titre} key3="Informationen" key4="Informations"/>
                 </div>
             </div>
         </>

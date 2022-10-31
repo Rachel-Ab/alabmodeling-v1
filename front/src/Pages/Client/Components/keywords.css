@@ -1,0 +1,150 @@
+.keyword1-box {
+    border-bottom: 3px solid #8db4d9;
+    position: fixed;
+    text-align: left;
+    top: 0;
+    right: 7%;
+    height: 7%;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 3%;
+    background: #f6f9ff;
+}
+
+.keyword1 {
+    /* position: absolute; */
+    /* top: 15px;
+    left: 12%; */
+    font-family: "o-m";
+    font-size: 26px;
+    color: #c8d0d7fa;
+}
+
+.keyword2 {
+    /* position: absolute;
+    top: 15px;
+    right: 12%; */
+    font-family: "o-m";
+    font-size: 26px;
+    color: #c8d0d7fa;
+}
+
+.keyword3-box {
+    border-left: 3px solid #8db4d9;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 95vh;
+    width: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: #f6f9ff;
+}
+
+.keyword3 {
+    transform: rotate(-90deg);
+    margin-bottom: 15vh;
+    font-family: "o-m";
+    font-size: 26px;
+    color: #c8d0d7fa;
+    white-space: nowrap;
+    height: max-content;
+}
+
+.keyword4-box {
+    border-top: 3px solid #8db4d9;
+    position: fixed;
+    text-align: left;
+    bottom: 0;
+    right: 4vw;
+    width: 50vw;
+    background: #f6f9ff;
+    height: 7%;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.keyword4 {
+    margin: 1vh 0;
+    font-size: 26px;
+    color: #c8d0d7fa;
+}
+
+.keyword4-box-void {
+    position: fixed;
+    text-align: left;
+    bottom: 0;
+    left: 0;
+    width: 50vw;
+    background: #f6f9ff;
+    height: 7%;
+}
+
+.menu-icon {
+    width: 50px;
+    margin-top: 3%;
+    cursor: pointer;
+}
+
+#side-menu-nav {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    background-color: #8db4d9;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.home-menu {
+    width: 30px;
+    position: absolute;
+    top: 0;
+    left: 46%;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.home-menu:hover {
+    filter: invert(1);
+}
+
+.exit-menu {
+    width: 30px;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.exit-menu:hover {
+    filter: invert(1);
+}
+
+.menu-content {
+    padding: 10px 20px;
+}
+
+.menu-content h2, .menu-content a {
+    color: white;
+    font-family: "o-m";
+    font-size: 20px;
+}
+
+.menu-content h2:hover, .menu-content a:hover, .menu-content .active {
+    color: black;
+}
+

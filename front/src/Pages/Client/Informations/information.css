@@ -7,7 +7,8 @@
 #informations-content {
     display: flex;
     flex-direction: column;
-    padding: 50px;
+    padding: 7%;
+    max-width: 85%;
 }
 
 .informations-text p.informations-title {
@@ -21,54 +22,4 @@
 .informations-text p {
     font-family: "o-m";
     font-size: 18px;
-}
-
-.keyword1 {
-    position: absolute;
-    top: 15px;
-    left: 12%;
-    font-family: "o-m";
-    font-size: 26px;
-    color: #c8d0d7fa;
-}
-.keyword2 {
-    position: absolute;
-    top: 15px;
-    right: 12%;
-    font-family: "o-m";
-    font-size: 26px;
-    color: #c8d0d7fa;
-}
-
-.keyword3-box {
-    border-left: 3px solid #8db4d9;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 95vh;
-    display: flex;
-    align-items: flex-end;
-}
-
-.keyword3 {
-    transform: rotate(-90deg);
-    margin-bottom: 15vh;
-    font-family: "o-m";
-    font-size: 26px;
-    color: #c8d0d7fa;
-}
-
-.keyword4-box {
-    border-top: 3px solid #8db4d9;
-    position: absolute;
-    text-align: left;
-    bottom: 15px;
-    right: 4vw;
-    width: 50vw;
-}
-
-.keyword4 {
-    margin: 1vh 0;
-    font-size: 26px;
-    color: #c8d0d7fa;
 }

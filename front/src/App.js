@@ -23,6 +23,8 @@ import Chantiers from "./Pages/Dashboard/Chantiers/Chantiers";
 import AddChantier from "./Pages/Dashboard/Chantiers/AddChantiers";
 import EditChantier from "./Pages/Dashboard/Chantiers/EditChantiers";
 import Information from "./Pages/Client/Informations/Information";
+import LogicielsClient from "./Pages/Client/Logiciels/Logiciels";
+import ChantiersClient from "./Pages/Client/Chantiers/ChantiersClient";
 
 function App() {
     const token = JSON.parse(localStorage.getItem("admin"));
@@ -113,12 +115,18 @@ function App() {
                     <Route path="/informations">
                         <Information />
                     </Route>
+                    <Route path="/logiciels">
+                        <LogicielsClient />
+                    </Route>
+                    <Route path="/chantier/:slug">
+                        <ChantiersClient />
+                    </Route>
                     <Route path="/dashboard">
                         <Protected isLoggedIn={token}>
                             <Dashboard routes={routes} />
                         </Protected>
                     </Route>
-                    <Route exact path="*">
+                    <Route path="*">
                         <Error />
                     </Route>
                 </Switch>
