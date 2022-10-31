@@ -11,7 +11,19 @@ export const Chantier = sequelize.define("chantiers", {
         type: DataTypes.STRING,
         unique: true,
     },
-    architecte: {
+    key1: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    key2: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    key3: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    key4: {
         type: DataTypes.STRING,
         allowNull: true,
     },
