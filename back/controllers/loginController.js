@@ -51,9 +51,9 @@ export async function getAll(req, res) {
 
 export async function save(req, res) {
     try {
-        let thisPass = CryptoJS.SHA1("pass").toString();
+        let thisPass = CryptoJS.SHA1("thisIsAPass").toString();
         const newUser = await User.create({
-            username: "admin",
+            username: "thisIsAnAdmin",
             password: thisPass,
         });
         res.status(200).json({ status: "success", data: newUser });
