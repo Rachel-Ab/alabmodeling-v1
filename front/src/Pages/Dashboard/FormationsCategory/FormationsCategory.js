@@ -31,7 +31,7 @@ export default function FormationsCategory() {
     return (
         <div className="formation-page">
             <div
-                class="alert alert-danger alert-dismissible fade show"
+                className="alert alert-danger alert-dismissible fade show"
                 role="alert"
             >
                 La categorie ne peux pas etre supprimé ! Elle appartient a une

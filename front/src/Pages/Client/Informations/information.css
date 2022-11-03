@@ -13,7 +13,7 @@
 
 .informations-text p.informations-title {
     border-bottom: 3px solid #8db4d9;
-    width: 50%;
+    width: 60%;
     font-family: "o-sb";
     font-size: 20px;
     margin: 10px 0;
@@ -34,4 +34,14 @@
 
 .informations-text .linkedin img:hover {
     color: #8db4d9;
+}
+
+@media (min-width: 1824px){
+    .informations-text p.informations-title {
+        font-size: 26px;
+    }
+
+    .informations-text p {
+        font-size: 24px;
+    }
 }

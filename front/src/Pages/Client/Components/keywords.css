@@ -5,7 +5,7 @@
     top: 0;
     right: 7%;
     height: 7%;
-    width: 80vw;
+    width: 81vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -13,6 +13,7 @@
     padding-right: 3%;
     padding-top: 10px;
     background: #f6f9ff;
+    z-index: 3;
 }
 
 .keyword1 {
@@ -39,6 +40,7 @@
     align-items: center;
     justify-content: space-between;
     background: #f6f9ff;
+    z-index: 3;
 }
 
 .keyword3 {
@@ -64,6 +66,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    z-index: 4;
 }
 
 .keyword4 {
@@ -80,6 +83,7 @@
     width: 50vw;
     background: #f6f9ff;
     height: 7%;
+    z-index: 3;
 }
 
 .menu-icon {
@@ -143,3 +147,9 @@
     color: black;
 }
 
+
+@media (min-width: 1824px){ 
+    .keyword1, .keyword2, .keyword3, .keyword4 {
+        font-size: 30px;
+    }
+}

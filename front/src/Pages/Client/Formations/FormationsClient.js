@@ -19,13 +19,13 @@ export default function FormationsClient() {
                 <div id="formations-content">
                     {formation.map((formation) => {
                         return (
-                            <div className="informations-text">
+                            <div className="informations-text" key={formation.id}>
                                 <p className="informations-title">
                                     {formation.name}
                                 </p>
                                 {formation.formations.map((item) => {
                                     return (
-                                        <div className="formation-content-box">
+                                        <div className="formation-content-box" key={item.id}>
                                             {item.year !== 0 && (
                                                 <p className="formation-year">
                                                     {item.year}

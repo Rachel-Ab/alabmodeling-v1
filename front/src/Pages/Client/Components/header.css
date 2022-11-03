@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: #8db4d9;
-    z-index: 3;
+    z-index: 5;
 }
 
 .side-header img {
@@ -16,7 +16,6 @@
 }
 
 .side-header h3 {
-    /* writing-mode: vertical-lr; */
     transform:rotate(-90deg);
     font-family: "o-b";
     font-size: 4vh;

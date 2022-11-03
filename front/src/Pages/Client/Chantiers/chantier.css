@@ -37,7 +37,7 @@
 
 #img-1 {
     width: 35%;
-    height: max-content;
+    height: 100%;
     border: solid 3px black;
     border-radius: 30px;
 }
@@ -48,14 +48,15 @@
     height: max-content;
     color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    font-size: 2vw;
     margin-top: 7vw;
     margin-left: -5vw;
+    z-index: 2;
 }
 
 .entreprise-name h4 {
     white-space: nowrap;
     margin: 0;
+    font-size: 22px;
 }
 
 .img-container2 {
@@ -70,7 +71,7 @@
     width: 35%;
     margin-left: 5%;
     margin-top: -10%;
-    height: max-content;
+    height: 100%;
     border: solid 5px black;
     border-radius: 30px;
 }
@@ -90,4 +91,38 @@
     margin-top: -5%;
     border: solid 5px black;
     border-radius: 30px;
+}
+
+@media (max-width: 1224px) {
+    #chantier-content {
+        padding-top: 8%;
+    }
+
+    .introduction {
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 1224px) and (max-width: 1824px) {
+    #chantier-content {
+        padding-top: 7%;
+    }
+}
+
+@media (min-width: 1824px) {
+    #chantier-content .introduction {
+        font-size: 28px;
+    }
+
+    .entreprise-name h4 {
+        font-size: 40px;
+    }
+
+    .chantier-text p.chantier-title {
+        font-size: 26px;
+    }
+
+    .chantier-text p {
+        font-size: 22px;
+    }
 }

@@ -41,7 +41,7 @@ export default function Information() {
                         <p>{information.email}</p>
                         <a
                             target="_blank"
-                            class="linkedin"
+                            className="linkedin"
                             href={information.linkedin}
                             rel="noreferrer"
                         >
