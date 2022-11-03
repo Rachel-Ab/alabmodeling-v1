@@ -25,6 +25,9 @@ export async function allByFk(req, res) {
     try {
         const docs = await Type.findAll({
             include: [{ model: Formation, as: "formations" }],
+            order: [
+                [Formation, "year", "DESC"]
+            ]
         });
         res.status(200).json({ status: "success", data: docs });
     } catch (err) {
