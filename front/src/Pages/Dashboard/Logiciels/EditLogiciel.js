@@ -30,7 +30,6 @@ export default function EditLogiciel() {
             ...prevState,
             [e.target.name]: e.target.value,
         }));
-        console.log({ [e.target.name]: e.target.value });
     }
 
     function handleSubmit(e) {
