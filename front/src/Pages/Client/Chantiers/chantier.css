@@ -8,5 +8,86 @@
     display: flex;
     flex-direction: column;
     padding: 5% 3%;
-    max-width: 85%;
+}
+
+#chantier-content .introduction {
+    font-family: "o-m";
+    font-size: 24px;
+    max-width: 31%;
+}
+
+.chantier-text p.chantier-title {
+    font-family: "o-sb";
+    font-size: 22px;
+    margin: 20px 0;
+}
+
+.chantier-text p {
+    font-family: "o-m";
+    font-size: 18px;
+}
+
+.chantier-tasks {
+    white-space: pre-wrap;
+}
+
+.img-container1 {
+    display: flex;
+}
+
+#img-1 {
+    width: 35%;
+    height: max-content;
+    border: solid 3px black;
+    border-radius: 30px;
+}
+
+.entreprise-name {
+    padding: 20px 50px;
+    width: max-content;
+    height: max-content;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-size: 2vw;
+    margin-top: 7vw;
+    margin-left: -5vw;
+}
+
+.entreprise-name h4 {
+    white-space: nowrap;
+    margin: 0;
+}
+
+.img-container2 {
+    display: flex;
+}
+
+.img-container2 .chantier-text {
+    max-width: 25%;
+}
+
+#img-2 {
+    width: 35%;
+    margin-left: 5%;
+    margin-top: -10%;
+    height: max-content;
+    border: solid 5px black;
+    border-radius: 30px;
+}
+
+.img-container3 {
+    display: flex;
+}
+
+.img-container3 .chantier-text {
+    max-width: 40%;
+}
+
+#img-3 {
+    width: 35%;
+    max-height: 50vh;
+    margin-left: 20%;
+    margin-top: -5%;
+    border: solid 5px black;
+    border-radius: 30px;
 }

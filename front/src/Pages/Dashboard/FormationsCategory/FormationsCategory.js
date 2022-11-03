@@ -1,32 +1,50 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { api } from "../../../config";
+import { api, images } from "../../../config";
 
 export default function FormationsCategory() {
     const token = JSON.parse(localStorage.getItem("admin"));
     const [formations, setFormations] = useState([]);
+    const [category, setCategory] = useState([]);
 
     useEffect(() => {
-        fetch(`${api}type/all`)
+        fetch(`${api}type/all-byFK`)
             .then((res) => res.json())
             .then((json) => setFormations(json.data));
     }, []);
+
     function deleteFormation(formation) {
-        fetch(`${api}type/delete/${formation.id}`, {
-            method: "DELETE",
-            headers: {
-                Authorization: "Bearer " + token,
-            },
-        }).then(() => (window.location.href = "/dashboard/categories"));
+        if (formation.formations.length === 0) {
+            fetch(`${api}type/delete/${formation.id}`, {
+                method: "DELETE",
+                headers: {
+                    Authorization: "Bearer " + token,
+                },
+            }).then(() => (window.location.href = "/dashboard/categories"));
+        } else {
+            document.querySelector(
+                ".formation-page .alert-danger"
+            ).style.display = "block";
+        }
     }
+
     return (
         <div className="formation-page">
+            <div
+                class="alert alert-danger alert-dismissible fade show"
+                role="alert"
+            >
+                La categorie ne peux pas etre supprimé ! Elle appartient a une
+                formation existante
+            </div>
             <nav>
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
                         <Link to="/dashboard">Dashboard</Link>
                     </li>
-                    <li className="breadcrumb-item active">Formations Category</li>
+                    <li className="breadcrumb-item active">
+                        Formations Categories
+                    </li>
                 </ol>
             </nav>
 
@@ -46,7 +64,7 @@ export default function FormationsCategory() {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th scope="col">Name</th>
+                                <th scope="col">Nom</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,7 +80,10 @@ export default function FormationsCategory() {
                                                     type="button"
                                                     className="btn btn-primary controls-button"
                                                 >
-                                                    Edit
+                                                    <img
+                                                        alt="edit icon"
+                                                        src={`${images}edit.svg`}
+                                                    />
                                                 </button>
                                             </Link>
                                         </td>
@@ -74,7 +95,10 @@ export default function FormationsCategory() {
                                                     deleteFormation(item)
                                                 }
                                             >
-                                                Supp
+                                                <img
+                                                    alt="delete icon"
+                                                    src={`${images}delete.svg`}
+                                                />
                                             </button>
                                         </td>
                                     </tr>

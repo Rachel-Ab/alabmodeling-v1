@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { images } from "../../../config";
 import ExperienceNav from "../Components/ExperienceNav"
 import "./home.css";
 
@@ -23,7 +22,7 @@ export default function Home() {
                 </div>
                 <div className="home-link">
                     <h2>
-                        <Link to="">Formations</Link>
+                        <Link to="/formations">Formations</Link>
                     </h2>
                 </div>
                 <div className="home-link">

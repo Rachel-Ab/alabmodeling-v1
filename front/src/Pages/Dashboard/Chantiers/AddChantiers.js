@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../../../config";
+import "../admin.css";
 
 export default function AddChantier() {
     const token = JSON.parse(localStorage.getItem("admin"));
     const [entreprises, setEntreprises] = useState([]);
     const [form, setForm] = useState({
-        name: "",
+        name: null,
         key1: "",
         key2: "",
         key3: "",
@@ -25,8 +26,14 @@ export default function AddChantier() {
             [e.target.name]: e.target.value,
         }));
     }
-    function handleSubmit() {
-        const requestOptions = {
+    function handleSubmit(e) {
+        if (form.name == null) {
+            e.preventDefault();
+            document.querySelector(
+                ".add-chantier-page .dashboard-form-error"
+            ).style.display = "block";
+        }else {
+            const requestOptions = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -37,6 +44,8 @@ export default function AddChantier() {
         fetch(`${api}chantier/add`, requestOptions).then((response) =>
             response.json()
         );
+        }
+        
     }
     useEffect(() => {
         fetch(`${api}entreprise/all`)
@@ -44,7 +53,7 @@ export default function AddChantier() {
             .then((json) => setEntreprises(json.data));
     }, []);
     return (
-        <div className="add-logiciel-page">
+        <div className="add-chantier-page">
             <nav>
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
@@ -60,6 +69,9 @@ export default function AddChantier() {
                 <div className="card-body">
                     <div className="card-title">
                         <h4>Ajouter un chantier</h4>
+                        <p className="dashboard-form-error">
+                            Remplir le champ Nom
+                        </p>
                     </div>
                     <form id="form-information" onSubmit={handleSubmit}>
                         <div className="row mb-3">
@@ -114,6 +126,7 @@ export default function AddChantier() {
                                     name="key1"
                                     type="text"
                                     className="form-control"
+                                    placeholder="colored key"
                                     id="key1"
                                     value={form.key1 || ""}
                                     onChange={handleChange}
@@ -132,6 +145,7 @@ export default function AddChantier() {
                                     name="key2"
                                     type="text"
                                     className="form-control"
+                                    placeholder="français"
                                     id="key2"
                                     value={form.key2 || ""}
                                     onChange={handleChange}
@@ -150,6 +164,7 @@ export default function AddChantier() {
                                     name="key3"
                                     type="text"
                                     className="form-control"
+                                    placeholder="allemand"
                                     id="key3"
                                     value={form.key3 || ""}
                                     onChange={handleChange}
@@ -168,6 +183,7 @@ export default function AddChantier() {
                                     name="key4"
                                     type="text"
                                     className="form-control"
+                                    placeholder="anglais"
                                     id="key4"
                                     value={form.key4 || ""}
                                     onChange={handleChange}
@@ -218,9 +234,8 @@ export default function AddChantier() {
                                 Tâches
                             </label>
                             <div className="col-md-8 col-lg-9">
-                                <input
+                                <textarea
                                     name="taches"
-                                    type="text"
                                     className="form-control"
                                     id="taches"
                                     value={form.taches || ""}
@@ -240,6 +255,7 @@ export default function AddChantier() {
                                     name="img1"
                                     type="text"
                                     className="form-control"
+                                    placeholder="https://imgur.com/images.jpg"
                                     id="img1"
                                     value={form.img1 || ""}
                                     onChange={handleChange}
@@ -258,6 +274,7 @@ export default function AddChantier() {
                                     name="img2"
                                     type="text"
                                     className="form-control"
+                                    placeholder="https://imgur.com/images.jpg"
                                     id="img2"
                                     value={form.img2 || ""}
                                     onChange={handleChange}
@@ -276,6 +293,7 @@ export default function AddChantier() {
                                     name="img3"
                                     type="text"
                                     className="form-control"
+                                    placeholder="https://imgur.com/images.jpg"
                                     id="img3"
                                     value={form.img3 || ""}
                                     onChange={handleChange}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { api } from "../../../config";
+import { api, images } from "../../../config";
 
 export default function Formations() {
     const token = JSON.parse(localStorage.getItem("admin"));
@@ -12,11 +12,13 @@ export default function Formations() {
             .then((res) => res.json())
             .then((json) => setCategories(json.data));
     }, []);
+
     useEffect(() => {
         fetch(`${api}formation/all`)
             .then((res) => res.json())
             .then((json) => setFormations(json.data));
     }, []);
+
     function deleteFormation(formation) {
         fetch(`${api}formation/delete/${formation.id}`, {
             method: "DELETE",
@@ -25,6 +27,7 @@ export default function Formations() {
             },
         }).then(() => (window.location.href = "/dashboard/formations"));
     }
+
     return (
         <div className="formation-page">
             <nav>
@@ -52,8 +55,8 @@ export default function Formations() {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Category</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Catégorie</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -79,7 +82,7 @@ export default function Formations() {
                                                     type="button"
                                                     className="btn btn-primary controls-button"
                                                 >
-                                                    Edit
+                                                    <img alt="edit icon" src={`${images}edit.svg`}/>
                                                 </button>
                                             </Link>
                                         </td>
@@ -91,7 +94,7 @@ export default function Formations() {
                                                     deleteFormation(item)
                                                 }
                                             >
-                                                Supp
+                                                <img alt="delete icon" src={`${images}delete.svg`}/>
                                             </button>
                                         </td>
                                     </tr>

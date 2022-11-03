@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { api } from "../../../config";
+import { api, images } from "../../../config";
+import "../admin.css";
 
 export default function EditChantier() {
     const token = JSON.parse(localStorage.getItem("admin"));
     let { slug } = useParams();
-    const [logiciel, setLogiciel] = useState([]);
+    const [chantier, setChantier] = useState([]);
     const [entreprises, setEntreprises] = useState([]);
     const [form, setForm] = useState({
         name: "",
@@ -25,24 +26,24 @@ export default function EditChantier() {
     useEffect(() => {
         fetch(`${api}chantier/by-slug/${slug}`)
             .then((res) => res.json())
-            .then((json) => setLogiciel(json.data));
+            .then((json) => setChantier(json.data));
     }, []);
     useEffect(() => {
         setForm({
-            name: logiciel.name,
-            key1: logiciel.key1,
-            key2: logiciel.key2,
-            key3: logiciel.key3,
-            key4: logiciel.key4,
-            intro: logiciel.intro,
-            specifications: logiciel.specifications,
-            taches: logiciel.taches,
-            img1: logiciel.img1,
-            img2: logiciel.img2,
-            img3: logiciel.img3,
-            entrepriseId: logiciel.entrepriseId,
+            name: chantier.name,
+            key1: chantier.key1,
+            key2: chantier.key2,
+            key3: chantier.key3,
+            key4: chantier.key4,
+            intro: chantier.intro,
+            specifications: chantier.specifications,
+            taches: chantier.taches,
+            img1: chantier.img1,
+            img2: chantier.img2,
+            img3: chantier.img3,
+            entrepriseId: chantier.entrepriseId,
         });
-    }, [logiciel]);
+    }, [chantier]);
 
     function handleChange(e) {
         setForm((prevState) => ({
@@ -52,7 +53,13 @@ export default function EditChantier() {
     }
 
     function handleSubmit(e) {
-        e.preventDefault();
+        if (form.name == null || form.name == "") {
+            e.preventDefault();
+            document.querySelector(
+                ".edit-chantier-page .dashboard-form-error"
+            ).style.display = "block";
+        }else{
+            e.preventDefault();
         const requestOptions = {
             method: "PUT",
             headers: {
@@ -61,9 +68,11 @@ export default function EditChantier() {
             },
             body: JSON.stringify(form),
         };
-        fetch(`${api}chantier/edit/${logiciel.id}`, requestOptions).then(
+        fetch(`${api}chantier/edit/${chantier.id}`, requestOptions).then(
             () => (window.location.href = "/dashboard/chantiers")
         );
+        }
+        
     }
     useEffect(() => {
         fetch(`${api}entreprise/all`)
@@ -71,7 +80,7 @@ export default function EditChantier() {
             .then((json) => setEntreprises(json.data));
     }, []);
     return (
-        <div className="edit-logiciel-page">
+        <div className="edit-chantier-page">
             <nav>
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
@@ -80,13 +89,16 @@ export default function EditChantier() {
                     <li className="breadcrumb-item active">
                         <Link to="/dashboard/chantiers">Chantiers</Link>
                     </li>
-                    <li className="breadcrumb-item active">Edit</li>
+                    <li className="breadcrumb-item active">Modifier</li>
                 </ol>
             </nav>
             <div className="card">
                 <div className="card-body">
                     <div className="card-title">
-                        <h4>Edit un chantier</h4>
+                        <h4>Modifier un chantier</h4>
+                        <p className="dashboard-form-error">
+                            Remplir le champ Nom
+                        </p>
                     </div>
                     <form id="form-information" onSubmit={handleSubmit}>
                         <div className="row mb-3">
@@ -112,7 +124,7 @@ export default function EditChantier() {
                                 htmlFor="entrepriseId"
                                 className="col-md-4 col-lg-3 col-form-label"
                             >
-                                Select
+                                Entreprise
                             </label>
                             <div className="col-md-8 col-lg-9">
                                 <select
@@ -127,6 +139,11 @@ export default function EditChantier() {
                                             <option
                                                 value={entreprise.id}
                                                 key={entreprise.id}
+                                                selected={
+                                                    entreprise.id ===
+                                                        form.entrepriseId &&
+                                                    true
+                                                }
                                             >
                                                 {entreprise.name}
                                             </option>
@@ -140,13 +157,14 @@ export default function EditChantier() {
                                 htmlFor="key1"
                                 className="col-md-4 col-lg-3 col-form-label"
                             >
-                                Key 1
+                                Mot clé 1
                             </label>
                             <div className="col-md-8 col-lg-9">
                                 <input
                                     name="key1"
                                     type="text"
                                     className="form-control"
+                                    placeholder="colored key"
                                     id="key1"
                                     value={form.key1 || ""}
                                     onChange={handleChange}
@@ -158,13 +176,14 @@ export default function EditChantier() {
                                 htmlFor="key2"
                                 className="col-md-4 col-lg-3 col-form-label"
                             >
-                                Key 2
+                                Mot clé 2
                             </label>
                             <div className="col-md-8 col-lg-9">
                                 <input
                                     name="key2"
                                     type="text"
                                     className="form-control"
+                                    placeholder="français"
                                     id="key2"
                                     value={form.key2 || ""}
                                     onChange={handleChange}
@@ -176,13 +195,14 @@ export default function EditChantier() {
                                 htmlFor="key3"
                                 className="col-md-4 col-lg-3 col-form-label"
                             >
-                                Key 3
+                                Mot clé 3
                             </label>
                             <div className="col-md-8 col-lg-9">
                                 <input
                                     name="key3"
                                     type="text"
                                     className="form-control"
+                                    placeholder="allemand"
                                     id="key3"
                                     value={form.key3 || ""}
                                     onChange={handleChange}
@@ -194,13 +214,14 @@ export default function EditChantier() {
                                 htmlFor="key4"
                                 className="col-md-4 col-lg-3 col-form-label"
                             >
-                                Key 4
+                                Mot clé 4
                             </label>
                             <div className="col-md-8 col-lg-9">
                                 <input
                                     name="key4"
                                     type="text"
                                     className="form-control"
+                                    placeholder="anglais"
                                     id="key4"
                                     value={form.key4 || ""}
                                     onChange={handleChange}
@@ -212,7 +233,7 @@ export default function EditChantier() {
                                 htmlFor="intro"
                                 className="col-md-4 col-lg-3 col-form-label"
                             >
-                                Intro
+                                Introduction
                             </label>
                             <div className="col-md-8 col-lg-9">
                                 <input
@@ -251,9 +272,8 @@ export default function EditChantier() {
                                 Tâches
                             </label>
                             <div className="col-md-8 col-lg-9">
-                                <input
+                                <textarea
                                     name="taches"
-                                    type="text"
                                     className="form-control"
                                     id="taches"
                                     value={form.taches || ""}
@@ -273,6 +293,7 @@ export default function EditChantier() {
                                     name="img1"
                                     type="text"
                                     className="form-control"
+                                    placeholder="https://imgur.com/images.jpg"
                                     id="img1"
                                     value={form.img1 || ""}
                                     onChange={handleChange}
@@ -291,6 +312,7 @@ export default function EditChantier() {
                                     name="img2"
                                     type="text"
                                     className="form-control"
+                                    placeholder="https://imgur.com/images.jpg"
                                     id="img2"
                                     value={form.img2 || ""}
                                     onChange={handleChange}
@@ -309,6 +331,7 @@ export default function EditChantier() {
                                     name="img3"
                                     type="text"
                                     className="form-control"
+                                    placeholder="https://imgur.com/images.jpg"
                                     id="img3"
                                     value={form.img3 || ""}
                                     onChange={handleChange}

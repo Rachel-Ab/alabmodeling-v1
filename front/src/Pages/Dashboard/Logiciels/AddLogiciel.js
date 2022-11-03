@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../../../config";
+import "../admin.css";
 
 export default function AddLogiciel() {
     const token = JSON.parse(localStorage.getItem("admin"));
     const [form, setForm] = useState({
-        name: "",
-        content: "",
+        name: null,
+        content: null,
     });
     function handleChange(e) {
         setForm((prevState) => ({
@@ -14,18 +15,25 @@ export default function AddLogiciel() {
             [e.target.name]: e.target.value,
         }));
     }
-    function handleSubmit() {
-        const requestOptions = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: "Bearer " + token,
-            },
-            body: JSON.stringify(form),
-        };
-        fetch(`${api}logiciel/add`, requestOptions).then((response) =>
-            response.json()
-        );
+    function handleSubmit(e) {
+        if (form.name == null || form.content == null) {
+            e.preventDefault();
+            document.querySelector(
+                ".add-logiciel-page .dashboard-form-error"
+            ).style.display = "block";
+        } else {
+            const requestOptions = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: "Bearer " + token,
+                },
+                body: JSON.stringify(form),
+            };
+            fetch(`${api}logiciel/add`, requestOptions).then((response) =>
+                response.json()
+            );
+        }
     }
     return (
         <div className="add-logiciel-page">
@@ -37,19 +45,24 @@ export default function AddLogiciel() {
                     <li className="breadcrumb-item active">
                         <Link to="/dashboard/logiciels">Logiciels</Link>
                     </li>
-                    <li className="breadcrumb-item active">Add</li>
+                    <li className="breadcrumb-item active">Ajouter</li>
                 </ol>
             </nav>
             <div className="card">
                 <div className="card-body">
-                    <div className="card-title"><h4>Ajouter un logiciel</h4></div>
+                    <div className="card-title">
+                        <h4>Ajouter un logiciel</h4>
+                        <p className="dashboard-form-error">
+                            Remplir les champs titre et informations
+                        </p>
+                    </div>
                     <form id="form-information" onSubmit={handleSubmit}>
                         <div className="row mb-3">
                             <label
                                 htmlFor="name"
                                 className="col-md-4 col-lg-3 col-form-label"
                             >
-                                Title
+                                Titre
                             </label>
                             <div className="col-md-8 col-lg-9">
                                 <input
@@ -67,7 +80,7 @@ export default function AddLogiciel() {
                                 htmlFor="content"
                                 className="col-md-4 col-lg-3 col-form-label"
                             >
-                                Informations
+                                Information
                             </label>
                             <div className="col-md-8 col-lg-9">
                                 <input
@@ -85,7 +98,7 @@ export default function AddLogiciel() {
                                 type="submit"
                                 className="btn btn-primary add-buttons"
                             >
-                                Save Changes
+                                Sauvegarder
                             </button>
                         </div>
                     </form>

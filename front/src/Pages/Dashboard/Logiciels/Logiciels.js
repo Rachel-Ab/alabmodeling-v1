@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { api } from "../../../config";
+import { api, images } from "../../../config";
+import "../admin.css";
 
 export default function Logiciel() {
     const token = JSON.parse(localStorage.getItem("admin"));
@@ -46,7 +47,7 @@ export default function Logiciel() {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th scope="col">Name</th>
+                                <th scope="col">Nom</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,7 +63,7 @@ export default function Logiciel() {
                                                     type="button"
                                                     className="btn btn-primary controls-button"
                                                 >
-                                                    Edit
+                                                    <img alt="edit icon" src={`${images}edit.svg`}/>
                                                 </button>
                                             </Link>
                                         </td>
@@ -74,7 +75,7 @@ export default function Logiciel() {
                                                     deleteLogiciel(item)
                                                 }
                                             >
-                                                Supp
+                                                <img alt="delete icon" src={`${images}delete.svg`}/>
                                             </button>
                                         </td>
                                     </tr>

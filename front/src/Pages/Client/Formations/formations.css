@@ -1,0 +1,29 @@
+#formations {
+    margin-left: 10%;
+    background-color: #f6f9ff;
+    height: 100%;
+}
+
+#formations-content {
+    display: flex;
+    flex-direction: column;
+    padding: 7%;
+    max-width: 85%;
+}
+
+.formation-content-box {
+    display: flex;
+}
+
+.formation-content-box p {
+    margin-right: 5px;
+}
+
+.formation-content-box .formation-year {
+    margin-right: 20px;
+    font-family: "o-sb";
+}
+
+.formation-name {
+    white-space: nowrap;
+}

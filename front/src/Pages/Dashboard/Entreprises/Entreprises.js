@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { api } from "../../../config";
+import { api, images } from "../../../config";
 
 export default function Entreprises() {
     const token = JSON.parse(localStorage.getItem("admin"));
-    const [formations, setFormations] = useState([]);
+    const [entreprises, setEntreprises] = useState([]);
 
     useEffect(() => {
         fetch(`${api}entreprise/all`)
             .then((res) => res.json())
-            .then((json) => setFormations(json.data));
+            .then((json) => setEntreprises(json.data));
     }, []);
     function deleteFormation(formation) {
         fetch(`${api}entreprise/delete/${formation.id}`, {
@@ -51,7 +51,7 @@ export default function Entreprises() {
                             </tr>
                         </thead>
                         <tbody>
-                            {formations.map((item) => {
+                            {entreprises.map((item) => {
                                 return (
                                     <tr key={item.id}>
                                         <td>{item.name}</td>
@@ -64,7 +64,7 @@ export default function Entreprises() {
                                                     type="button"
                                                     className="btn btn-primary controls-button"
                                                 >
-                                                    Edit
+                                                    <img alt="edit icon" src={`${images}edit.svg`}/>
                                                 </button>
                                             </Link>
                                         </td>
@@ -76,7 +76,7 @@ export default function Entreprises() {
                                                     deleteFormation(item)
                                                 }
                                             >
-                                                Supp
+                                                <img alt="delete icon" src={`${images}delete.svg`}/>
                                             </button>
                                         </td>
                                     </tr>

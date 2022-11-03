@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { api } from "../../../config";
+import { api, images } from "../../../config";
 
 export default function Chantiers() {
     const token = JSON.parse(localStorage.getItem("admin"));
-    const [formations, setFormations] = useState([]);
+    const [chantiers, setChantiers] = useState([]);
     const [entreprises, setEntreprises] = useState([]);
 
     useEffect(() => {
@@ -16,7 +16,7 @@ export default function Chantiers() {
     useEffect(() => {
         fetch(`${api}chantier/all`)
             .then((res) => res.json())
-            .then((json) => setFormations(json.data));
+            .then((json) => setChantiers(json.data));
     }, []);
 
     function deleteFormation(formation) {
@@ -59,13 +59,13 @@ export default function Chantiers() {
                             </tr>
                         </thead>
                         <tbody>
-                            {formations.map((item) => {
+                            {chantiers.map((chantier) => {
                                 return (
-                                    <tr key={item.id}>
-                                        <td>{item.name}</td>
+                                    <tr key={chantier.id}>
+                                        <td>{chantier.name}</td>
                                         {entreprises.map((entreprise) => {
                                             return (
-                                                item.entrepriseId === entreprise.id && (
+                                                chantier.entrepriseId === entreprise.id && (
                                                     <td key={entreprise.id}>
                                                         {entreprise.name}
                                                     </td>
@@ -74,13 +74,13 @@ export default function Chantiers() {
                                         })}
                                         <td className="table-buttons">
                                             <Link
-                                                to={`/dashboard/chantier-edit/${item.slug}`}
+                                                to={`/dashboard/chantier-edit/${chantier.slug}`}
                                             >
                                                 <button
                                                     type="button"
                                                     className="btn btn-primary controls-button"
                                                 >
-                                                    Edit
+                                                    <img alt="edit icon" src={`${images}edit.svg`}/>
                                                 </button>
                                             </Link>
                                         </td>
@@ -89,10 +89,10 @@ export default function Chantiers() {
                                                 type="button"
                                                 className="btn btn-primary controls-button"
                                                 onClick={() =>
-                                                    deleteFormation(item)
+                                                    deleteFormation(chantier)
                                                 }
                                             >
-                                                Supp
+                                                <img alt="delete icon" src={`${images}delete.svg`}/>
                                             </button>
                                         </td>
                                     </tr>

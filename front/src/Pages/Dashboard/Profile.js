@@ -46,12 +46,11 @@ export default function Profile() {
     }
 
     function handleSubmit(e) {
-        // e.preventDefault();
         const requestOptions = {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer " + token,
+                Authorization: "Bearer " + token,
             },
             body: JSON.stringify(form),
         };
@@ -92,6 +91,7 @@ export default function Profile() {
                                         href={information.linkedin}
                                         target="_blank"
                                         className="linkedin"
+                                        rel="noreferrer"
                                     >
                                         <i className="bi bi-linkedin"></i>
                                     </a>
@@ -110,7 +110,7 @@ export default function Profile() {
                                             data-bs-toggle="tab"
                                             data-bs-target="#profile-overview"
                                         >
-                                            Overview
+                                            Aperçu
                                         </button>
                                     </li>
 
@@ -120,7 +120,7 @@ export default function Profile() {
                                             data-bs-toggle="tab"
                                             data-bs-target="#profile-edit"
                                         >
-                                            Edit Profile
+                                            Modifier Profile
                                         </button>
                                     </li>
                                 </ul>
@@ -129,7 +129,7 @@ export default function Profile() {
                                         className="tab-pane fade show active profile-overview"
                                         id="profile-overview"
                                     >
-                                        <h5 className="card-title">About</h5>
+                                        <h5 className="card-title">A propos</h5>
                                         <p
                                             className="small fst-italic"
                                             style={{ whiteSpace: "pre-line" }}
@@ -143,7 +143,7 @@ export default function Profile() {
 
                                         <div className="row">
                                             <div className="col-lg-3 col-md-4 label ">
-                                                Full Name
+                                                Nom complet
                                             </div>
                                             <div className="col-lg-9 col-md-8">
                                                 {information.name}
@@ -161,7 +161,7 @@ export default function Profile() {
 
                                         <div className="row">
                                             <div className="col-lg-3 col-md-4 label">
-                                                Company
+                                                Entreprise
                                             </div>
                                             <div className="col-lg-9 col-md-8">
                                                 {information.company}
@@ -170,7 +170,7 @@ export default function Profile() {
 
                                         <div className="row">
                                             <div className="col-lg-3 col-md-4 label">
-                                                Position
+                                                Poste
                                             </div>
                                             <div className="col-lg-9 col-md-8">
                                                 {information.titre}
@@ -188,7 +188,7 @@ export default function Profile() {
 
                                         <div className="row">
                                             <div className="col-lg-3 col-md-4 label">
-                                                Phone
+                                                Téléphone
                                             </div>
                                             <div className="col-lg-9 col-md-8">
                                                 {information.phone}
@@ -218,7 +218,7 @@ export default function Profile() {
                                                     htmlFor="name"
                                                     className="col-md-4 col-lg-3 col-form-label"
                                                 >
-                                                    Full Name
+                                                    Nom complet
                                                 </label>
                                                 <div className="col-md-8 col-lg-9">
                                                     <input
@@ -256,7 +256,7 @@ export default function Profile() {
                                                     htmlFor="infos"
                                                     className="col-md-4 col-lg-3 col-form-label"
                                                 >
-                                                    About
+                                                    A propos
                                                 </label>
                                                 <div className="col-md-8 col-lg-9">
                                                     <textarea
@@ -277,7 +277,7 @@ export default function Profile() {
                                                     htmlFor="company"
                                                     className="col-md-4 col-lg-3 col-form-label"
                                                 >
-                                                    Company
+                                                    Entreprise
                                                 </label>
                                                 <div className="col-md-8 col-lg-9">
                                                     <input
@@ -297,7 +297,7 @@ export default function Profile() {
                                                     htmlFor="titre"
                                                     className="col-md-4 col-lg-3 col-form-label"
                                                 >
-                                                    Position
+                                                    Poste
                                                 </label>
                                                 <div className="col-md-8 col-lg-9">
                                                     <input
@@ -337,7 +337,7 @@ export default function Profile() {
                                                     htmlFor="phone"
                                                     className="col-md-4 col-lg-3 col-form-label"
                                                 >
-                                                    Phone
+                                                    Téléphone
                                                 </label>
                                                 <div className="col-md-8 col-lg-9">
                                                     <input
@@ -375,7 +375,7 @@ export default function Profile() {
                                                     htmlFor="linkedin"
                                                     className="col-md-4 col-lg-3 col-form-label"
                                                 >
-                                                    Linkedin Profile
+                                                    Linkedin
                                                 </label>
                                                 <div className="col-md-8 col-lg-9">
                                                     <input

@@ -23,3 +23,15 @@
     font-family: "o-m";
     font-size: 18px;
 }
+
+.information-textarea {
+    white-space: pre-wrap;
+}
+
+.informations-text .linkedin img{
+    width: 30px;
+}
+
+.informations-text .linkedin img:hover {
+    color: #8db4d9;
+}

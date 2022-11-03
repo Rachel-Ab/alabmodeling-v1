@@ -1,6 +1,5 @@
 import "./App.css";
 import Dashboard from "./Pages/Dashboard/Dashboard.js";
-import Test from "./Pages/Dashboard/Test.js";
 import Login from "./Pages/Login";
 import Home from "./Pages/Client/Home/Home";
 import Error from "./Pages/Error";
@@ -25,14 +24,11 @@ import EditChantier from "./Pages/Dashboard/Chantiers/EditChantiers";
 import Information from "./Pages/Client/Informations/Information";
 import LogicielsClient from "./Pages/Client/Logiciels/Logiciels";
 import ChantiersClient from "./Pages/Client/Chantiers/ChantiersClient";
+import FormationsClient from "./Pages/Client/Formations/FormationsClient";
 
 function App() {
     const token = JSON.parse(localStorage.getItem("admin"));
     const routes = [
-        {
-            path: "/dashboard/test",
-            component: Test,
-        },
         {
             path: "/dashboard/profile",
             component: Profile,
@@ -114,6 +110,9 @@ function App() {
                     </Route>
                     <Route path="/informations">
                         <Information />
+                    </Route>
+                    <Route path="/formations">
+                        <FormationsClient/>
                     </Route>
                     <Route path="/logiciels">
                         <LogicielsClient />

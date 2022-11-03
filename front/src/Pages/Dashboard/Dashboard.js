@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import React from "react";
+import { Switch} from "react-router-dom";
 import RouteWithSubRoutes from "../../GlobalComponents/RouteWithSubRoutes";
 import Layout from "./Components/Layout";
-import { pathname } from "../../config.js";
 import "./admin.css";
 
 export default function Dashboard({ routes }) {
