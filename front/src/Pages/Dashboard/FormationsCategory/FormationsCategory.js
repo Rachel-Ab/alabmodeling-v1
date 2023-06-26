@@ -13,6 +13,10 @@ export default function FormationsCategory() {
             .then((json) => setFormations(json.data));
     }, []);
 
+    function redirect(){
+        window.location.href = "/dashboard/categories"
+    }
+
     function deleteFormation(formation) {
         if (formation.formations.length === 0) {
             fetch(`${api}type/delete/${formation.id}`, {
@@ -20,7 +24,7 @@ export default function FormationsCategory() {
                 headers: {
                     Authorization: "Bearer " + token,
                 },
-            }).then(() => (window.location.href = "/dashboard/categories"));
+            }).then(redirect);
         } else {
             document.querySelector(
                 ".formation-page .alert-danger"
